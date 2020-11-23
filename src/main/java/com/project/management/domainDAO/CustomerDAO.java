@@ -79,7 +79,7 @@ public class CustomerDAO extends DataCRUD<Customer> {
         Transaction transaction = session.beginTransaction();
         LOG.debug(String.format("Finding Customer, name = %s", customerName));
         Query query = session.createQuery("from Customer c where c.name= :name");
-        Customer result= null;
+        Customer result = null;
         try {
             result = (Customer) query.setParameter("name", customerName).uniqueResult();
             transaction.commit();

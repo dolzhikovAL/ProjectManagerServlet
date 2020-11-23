@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @NoArgsConstructor
-@Table(name ="developers")
+@Table(name = "developers")
 @Entity
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public @Data
@@ -17,13 +17,13 @@ class Developer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
 
-    @Column(name="developer_name")
+    @Column(name = "developer_name")
     private String name;
 
-    @Column(name="developer_age")
+    @Column(name = "developer_age")
     private int age;
 
     public Company getCompany() {
@@ -32,10 +32,10 @@ class Developer {
 
     @EnumValidator(regexp = "MAN|WOMAN")
     @Enumerated(EnumType.STRING)
-    @Column(name="developer_gender")
+    @Column(name = "developer_gender")
     private DeveloperGender gender;
 
-    @Column(name="salary")
+    @Column(name = "salary")
     private int salary;
 
     @ManyToOne
@@ -77,7 +77,7 @@ class Developer {
                 ", age=" + age +
                 ", gender=" + gender +
                 ", salary=" + salary +
-                ( (company==null)?", null": ", company =" + company.getName()) +
+                ((company == null) ? ", null" : ", company =" + company.getName()) +
                 '}';
     }
 

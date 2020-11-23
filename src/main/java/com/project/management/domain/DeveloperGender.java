@@ -4,22 +4,22 @@ import java.util.Arrays;
 import java.util.Optional;
 
 
-    public enum DeveloperGender {
-        MAN("MAN"), WOMAN("WOMAN");
+public enum DeveloperGender {
+    MAN("MAN"), WOMAN("WOMAN");
 
-        private String gender;
+    private String gender;
 
-        DeveloperGender(String gender) {
-            this.gender = gender;
-        }
+    DeveloperGender(String gender) {
+        this.gender = gender;
+    }
 
-        public String getGender() {
-            return gender;
-        }
+    public String getGender() {
+        return gender;
+    }
 
-        public static Optional<DeveloperGender> getCourseStatus(String status) {
-            return Arrays.stream(DeveloperGender.values())
-                    .filter(enumValue -> enumValue.getGender().equals(status))
-                    .findAny();
-        }
+    public static Optional<DeveloperGender> getCourseStatus(String status) {
+        return Arrays.stream(DeveloperGender.values())
+                .filter(enumValue -> enumValue.getGender().equals(status))
+                .findAny();
+    }
 }

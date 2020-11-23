@@ -69,8 +69,8 @@ public class CompanyDAO extends DataCRUD<Company> {
         Company result;
         try {
             result = (Company) query2.setParameter("name", name).uniqueResult();
-            transaction.commit();}
-        catch (Exception e) {
+            transaction.commit();
+        } catch (Exception e) {
             LOG.error(e.getMessage());
             throw new NullPointerException("Company with the name provided does not exist in database");
         }

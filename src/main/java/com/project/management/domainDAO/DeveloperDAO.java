@@ -72,7 +72,7 @@ public class DeveloperDAO extends DataCRUD<Developer> {
         Transaction transaction = session.beginTransaction();
         LOG.debug(String.format("Finding Developer, name = %s", name));
         Query query = session.createQuery("from Developer d where d.name= :name");
-        Developer result= null;
+        Developer result = null;
         try {
             result = (Developer) query.setParameter("name", name).uniqueResult();
             transaction.commit();

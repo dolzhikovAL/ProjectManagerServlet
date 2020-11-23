@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
+
 public class ProjectDAO extends DataCRUD<Project> {
     private final static Logger LOG = LogManager.getLogger(CustomerDAO.class);
     private SessionFactory sessionFactory;
@@ -63,9 +64,10 @@ public class ProjectDAO extends DataCRUD<Project> {
         LOG.debug(String.format("Finding Project, name = %s", name));
         Query query = session.createQuery("from Project p where p.name = :name");
         Project result;
-        try {result = (Project) query.setParameter("name", name).uniqueResult();
-            transaction.commit();}
-        catch (Exception e) {
+        try {
+            result = (Project) query.setParameter("name", name).uniqueResult();
+            transaction.commit();
+        } catch (Exception e) {
             LOG.error(e.getMessage());
             throw new NullPointerException("Project with the phone number provided does not exist in database");
         }
